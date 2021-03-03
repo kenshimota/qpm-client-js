@@ -1,0 +1,16 @@
+{
+  "name": "qpm-client-js",
+  "version": "1.0.0",
+  "description": "Quick Pallet Maker - Connect API https://qpmserver.com ",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "author": "Erik Mota Galindo",
+  "license": "ISC",
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "node-fetch": "^2.6.1",
+    "xml-js": "^1.6.11"
+  }
+}
