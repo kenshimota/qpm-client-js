@@ -10,10 +10,56 @@ const Client = QPM({
 
 
 // esta funcion se encarga de buscar que methodos hacen falta por documentar
-Client.getMethodsNotDefined().then(console.log);
+Client.getMethodsNotDefined().then((methods) => {
+    methods.forEach((e) => console.log(`-${e}`));
+});
+
 
 // ---------- Main -----------
 async function main() {
+
+
+    /*let pack = await Client.method("addEditPackage", {
+        pinfo: {
+            "site_name": "San Jose CR",
+            "pp_code": "123",
+            "pp_allowlength": true,
+            "pp_allowdiam": true,
+            "pp_allowwidth": true,
+            "pp_allowheight": true,
+            "pp_body": 636.21,
+            "pp_cap": 238.21,
+            "pp_capdiam": 2873.12,
+            "pp_length": 2873.2,
+            "pp_diameter": 237.47,
+            "pp_width": 238.21,
+            "pp_height": 123.41,
+            "pp_weight": 100.32,
+            "pp_c1": "A1",
+            "pp_c2": "P3",
+            "pp_c3": "E5",
+            "pp_c4": "42",
+            "pp_description": "pp descripcion erik",
+            "pp_type": 5,
+            "pp_unit": 4,
+            "updated": "2020-12-01"
+        }
+    }).fetch().then((t) => t);
+
+    await Client.method("listPacksPerSite", {
+        sede: {site_name: "San Jose CR"}
+    }).fetch().then(console.log);
+    
+
+    Client.method("getPackageInfo", {
+        ppdata: {   
+            "id": pack.id,
+            "pp_code": "123",
+            "site_name": "San Jose CR"
+        }
+    }).fetch().then(console.log);
+
+    
 
     Client.method("addEditAssetClass", {
         classinfo: {
@@ -102,7 +148,7 @@ async function main() {
     }).fetch().then(console.log);
 
     // obteniendo todas la clases
-    /*await Client.method("getVariablesFromClassID", {
+    await Client.method("getVariablesFromClassID", {
         classid: { assetclass_id: asset.id }
     }).fetch().then(console.log);
 
@@ -137,7 +183,7 @@ async function main() {
 
 }
 
-// main();
+main();
 
 
 
