@@ -17,9 +17,9 @@ const { QPM } = require("qpm-client-js");
 
 // loading setting for comunication API Quick Pallet Maker
 const Client = QPM({
-    "username": "administrator", // username
-    "password": "0000", // password 
-    "server": "http://45.79.44.19:8888" // link and port the server
+    "username": "user_example", // username
+    "password": "password_example", // password 
+    "server": "https://mi-server.com:8000" // link and port the server
 });
 
 ```
