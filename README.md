@@ -26,6 +26,7 @@ const Client = QPM({
 
 Using before setting, you request data to serve. example:
 
+### function not async in javascript
 ```javascript
 // function not async
 function requestAddClassVariable(){
@@ -51,6 +52,10 @@ function requestAddClassVariable(){
     Client.fetch().then(handleResponse);
 };
 
+```
+
+### function async in javascript
+```javascript
 // creating function async
 async function addAssetClass(){
     
