@@ -7,7 +7,7 @@ yarn-error.log*
 lerna-debug.log*
 
 # carpetas ignoradas para la exportacion CDN
-udm/
+umd/
 lib/
 
 # Diagnostic reports (https://nodejs.org/api/report.html)

@@ -3,15 +3,19 @@ const { QPM } = require("../index");
 
 // esta es la variable cliente
 const Client = QPM({
-    "username": "administrator", // username
-    "password": "0000", // password 
+    "username": "admin_lin001", // username
+    "password": "koona001", // password 
     "server": "http://45.79.44.19:8888" // link and port the server
 });
 
 
 // esta funcion se encarga de buscar que methodos hacen falta por documentar
 Client.getMethodsNotDefined().then((methods) => {
-    methods.forEach((e) => console.log(`-${e}`));
+    let i = 1;
+    methods.forEach((e, key) => {
+        console.log(`- ${i} --> ${e}`);
+        i++;
+    });
 });
 
 

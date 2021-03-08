@@ -1,15 +1,16 @@
 {
   "name": "qpm-client-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Quick Pallet Maker - Connect API https://qpmserver.com ",
   "main": "index.js",
   "scripts": {
     "test": "node test/index.js",
     "build": "babel src -d lib",
-    "umd": "mkdir -p umd && npm run umd:development && npm run umd:min",
+    "umd": "mkdir -p umd && npm run umd:development",
     "umd:development": "browserify -t babelify src/qpm.js --standalone qpm -o umd/qpm-client.umd.js -d",
-    "umd:min": "browserify -t babelify src/qpm.js --standalone qpm | uglifyjs > umd/qpm-client.umd.min.js",
-    "prepublish": "npm run build && npm run umd"
+    "umd:min": "uglifyjs umd/test.min.js -o umd/qpm-client.umd.min.js",
+    "umd-min": "browserify -t babelify src/qpm.js --standalone QPM -o umd/test.min.js -d ",
+    "prepublish": "npm run build && npm run umd-min && npm run umd"
   },
   "files": [
     "lib",

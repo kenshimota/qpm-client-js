@@ -1,42 +1,49 @@
 const fetch = require('node-fetch');
-const { Queue } = require("./queue");
-const { xml2json } = require("xml-js");
-const nodes = Queue();
+const queue = require("./queue");
+const xml = require("xml-js");
+const nodes = queue.Queue();
 
 /* funcion que controla las solicitudes */
-const sleep = function (ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-};
+function sleep(milliseconds) {
+    const date = Date.now();
+    var cD = Date.now();
+    do {
+        cD = Date.now();
+    } while (cD - date < milliseconds);
+}
 
 
 /* estaleciendo los parametros principales para el
 enviar los parametros de forma que podamos enivarlos al servidor
 comodamente  */
-const getParams = (params = {}, prefix = null) => {
-    let body = "";
-    let string = "";
+const getParams = function (params, prefix) {
+    if (!params)
+        throw "not arguments";
+
+    var body = "";
+    var string = "";
     for (var index in params) {
 
         // procesando parametros
         switch (typeof params[index]) {
-            case "undefined": string = `${index}=`; break;
-            case "object": string = `${index}=${encodeURIComponent(JSON.stringify(params[index]))}`; break;
-            default: string = prefix != null ? `${prefix}[${index}]=${params[index]}` : `${index}=${params[index]}`; break;
+            case "undefined": string = index + "="; break;
+            case "object": string = index + "=" + encodeURIComponent(JSON.stringify(params[index])); break;
+            default: string = prefix != null ? prefix + "[" + index + "]" + params[index] : index + "=" + params[index]; break;
         }
 
-        body += body.length === 0 ? string : `&${string}`;
+        body += body.length === 0 ? string : "&" + string;
     }
     return body;
 };
 
 /* funcion que se encarga de mostrar el reporte de un error 500 */
-const reportError = function (data) {
-    let str = data.search('id="-lucee-err"') + 180;
-    let exit = "</td>";
-    let count = 0;
-    let output = "";
+function reportError(data) {
+    var str = data.search('id="-lucee-err"') + 180;
+    var exit = "</td>";
+    var count = 0;
+    var output = "";
 
-    for (let i = str; count < exit.length; i++) {
+    for (var i = str; count < exit.length; i++) {
         output += data[i];
         count = (exit[count] == data[i] ? count + 1 : 0);
     }
@@ -46,7 +53,7 @@ const reportError = function (data) {
 
 /* funcion que se encarga de enviar los parametros obtenidos 
 a cualquier ubicacion realizando el ajax tan solicitado */
-const fetchSync = async (url, options = {}) => {
+async function fetchSync(url, options = {}) {
     try {
 
         if (options.headers == null)
@@ -65,13 +72,13 @@ const fetchSync = async (url, options = {}) => {
         if (typeof options.body == "object" && options.body != null && options.method == "POST")
             options.body = getParams(options.body);
 
-        // let start = Date.now();
+        // var start = Date.now();
         !globalThis.window ? console.log("\x1b[36m%s\x1b[0m", `Solicitando Datos de [${options.method}] -> ${url}`) : console.log(`%c Solicitando Datos de [${options.method}] -> ${url}`, "color: #23b;");
         console.log(options, "\n\n");
 
-        let key = `${nodes.size()} - ${url}`;
+        var key = `${nodes.size()} - ${url}`;
         nodes.add({ key });
-        let aux = nodes.front();
+        var aux = nodes.front();
 
         // realizando la espera 10ms evaluando si la llamada fue realizada
         while (!nodes.empty() && aux.key != key) {
@@ -80,12 +87,12 @@ const fetchSync = async (url, options = {}) => {
         }
 
         // realizando solicitud de datos desde un fetch determinado
-        let result = await fetch(url, options).then(async (response) => {
+        var result = await fetch(url, options).then(async (response) => {
             try {
-                let data = await response.text();
+                var data = await response.text();
 
 
-                // let end = Date.now();
+                // var end = Date.now();
 
                 // notificando que ha ocurrido todo un error
                 if (response.status == 500)
@@ -101,7 +108,7 @@ const fetchSync = async (url, options = {}) => {
                         if (!data.error == false)
                             throw data.errormessage;
                         break;
-                    case "xml": data = JSON.parse(xml2json(data)); break;
+                    case "xml": data = JSON.parse(xml.xml2json(data)); break;
                 }
 
 
