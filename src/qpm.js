@@ -6,7 +6,8 @@ const QPM = (config) => ({
 
     // details the authentication and server
     _config: config,
-    methodsNotAdd: new Set(),
+    methods,
+    methodsNotAdd: new Set(), // container methods not documentation
     _call: { method: null, params: null },
 
     // valid setting QPM Client
