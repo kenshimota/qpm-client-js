@@ -7,11 +7,18 @@ const shipments = require("./methods/shipments");
 const trucks = require("./methods/trucks");
 const trucks_routes = require("./methods/trucks_routes");
 
-let methods = {
-    ...boards, ...classes, ...packages, 
-    ...boxes, ...pallets, ...shipments,
-    ...trucks, ...trucks_routes
+let packagesMethods = {
+    boards, classes, packages, 
+    boxes, pallets, shipments,
+    trucks, trucks_routes
 };
+
+let methods = {};
+
+// methodos expuesto
+for (let i in packagesMethods) {
+    for (let j in packagesMethods[i]) methods[j] = packagesMethods[i][j];
+}
 
 // listado de metodos para estructuras de datos
 const reports = [

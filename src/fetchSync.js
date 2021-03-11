@@ -4,14 +4,9 @@ const xml = require("xml-js");
 const nodes = queue.Queue();
 
 /* funcion que controla las solicitudes */
-function sleep(milliseconds) {
-    const date = Date.now();
-    var cD = Date.now();
-    do {
-        cD = Date.now();
-    } while (cD - date < milliseconds);
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(() => resolve(ms), ms));
 }
-
 
 /* estaleciendo los parametros principales para el
 enviar los parametros de forma que podamos enivarlos al servidor
@@ -56,6 +51,18 @@ a cualquier ubicacion realizando el ajax tan solicitado */
 async function fetchSync(url, options = {}) {
     try {
 
+        var key = `${nodes.size()} - ${url}`;
+        nodes.add({ key });
+        var aux = nodes.front();
+
+        // realizando la espera 10ms evaluando si la llamada fue realizada
+        while (!nodes.empty() && aux.key != key) {
+            await sleep(10);
+            aux = nodes.front();
+        }
+
+
+
         if (options.headers == null)
             options.headers = { "Accept": "application/json" };
         else
@@ -74,32 +81,23 @@ async function fetchSync(url, options = {}) {
 
         // var start = Date.now();
         !globalThis.window ? console.log("\x1b[36m%s\x1b[0m", `Solicitando Datos de [${options.method}] -> ${url}`) : console.log(`%c Solicitando Datos de [${options.method}] -> ${url}`, "color: #23b;");
-        console.log(options, "\n\n");
 
-        var key = `${nodes.size()} - ${url}`;
-        nodes.add({ key });
-        var aux = nodes.front();
-
-        // realizando la espera 10ms evaluando si la llamada fue realizada
-        while (!nodes.empty() && aux.key != key) {
-            await sleep(10);
-            aux = nodes.front();
-        }
+        var start = Date.now();
 
         // realizando solicitud de datos desde un fetch determinado
         var result = await fetch(url, options).then(async (response) => {
             try {
                 var data = await response.text();
-
-
-                // var end = Date.now();
+                var end = Date.now();
 
                 // notificando que ha ocurrido todo un error
                 if (response.status == 500)
                     throw { error: reportError(data) };
 
-                // console.log(`%c ${response.status} - [${options.method}] -> ${url} obtuvo un respuesta exitosa en ${(end - start)}ms `, "color: green;");
                 // retorna el procesamiento de datos
+                !globalThis.window ? console.log("\x1b[36m%s\x1b[0m", `${response.status} - [${options.method}] -> ${url} obtuvo un respuesta exitosa en ${(end - start)}ms\n\n`) : console.log(`%c ${response.status} - [${options.method}] -> ${url} obtuvo un respuesta exitosa en ${(end - start)}ms\n\n`, "color: #23b;");
+
+
 
                 // retornando datos en json
                 switch (options.type) {
@@ -110,7 +108,6 @@ async function fetchSync(url, options = {}) {
                         break;
                     case "xml": data = JSON.parse(xml.xml2json(data)); break;
                 }
-
 
                 return { response: data, status: response.status };
             } catch (error) {
@@ -123,6 +120,7 @@ async function fetchSync(url, options = {}) {
         return result;
     } catch (error) {
         console.error(error);
+        !globalThis.window ? console.log("\x1b[31m", `[${options.method}] -> ${url} obtuvo un respuesta fallida\n\n`) : console.log(`%c [${options.method}] -> ${url} obtuvo un respuesta fallida\n\n`, "color: red;");
         throw error;
         return { status: 422, response: error };
     } finally {

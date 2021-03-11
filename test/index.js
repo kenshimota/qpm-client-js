@@ -10,20 +10,20 @@ const Client = QPM({
 
 
 // esta funcion se encarga de buscar que methodos hacen falta por documentar
-Client.getMethodsNotDefined().then((methods) => {
+/*Client.getMethodsNotDefined().then((methods) => {
     let i = 1;
     methods.forEach((e, key) => {
         console.log(`- ${i} --> ${e}`);
         i++;
     });
-});
+});*/
 
 
 // ---------- Main -----------
 async function main() {
 
 
-    /*let pack = await Client.method("addEditPackage", {
+    Client.method("addEditPackage", {
         pinfo: {
             "site_name": "San Jose CR",
             "pp_code": "123",
@@ -48,9 +48,73 @@ async function main() {
             "pp_unit": 4,
             "updated": "2020-12-01"
         }
-    }).fetch().then((t) => t);
+    }).fetch().then((t) => console.log("test1", t));
 
-    await Client.method("listPacksPerSite", {
+    Client.method("getPackageInfo", {
+        ppdata: {   
+            "id": 242,
+            "pp_code": "123",
+            "site_name": "San Jose CR"
+        }
+    }).fetch().then(console.log);
+
+    Client.method("addEditPackage", {
+        pinfo: {
+            "site_name": "San Jose CR",
+            "pp_code": "123",
+            "pp_allowlength": true,
+            "pp_allowdiam": true,
+            "pp_allowwidth": true,
+            "pp_allowheight": true,
+            "pp_body": 636.21,
+            "pp_cap": 238.21,
+            "pp_capdiam": 2873.12,
+            "pp_length": 2873.2,
+            "pp_diameter": 237.47,
+            "pp_width": 238.21,
+            "pp_height": 123.41,
+            "pp_weight": 100.32,
+            "pp_c1": "A1",
+            "pp_c2": "P3",
+            "pp_c3": "E5",
+            "pp_c4": "42",
+            "pp_description": "pp descripcion erik",
+            "pp_type": 5,
+            "pp_unit": 4,
+            "updated": "2020-12-01"
+        }
+    }).fetch().then((t) => console.log("test2", t));
+
+
+    Client.method("addEditPackage", {
+        pinfo: {
+            "site_name": "San Jose CR",
+            "pp_code": "123",
+            "pp_allowlength": true,
+            "pp_allowdiam": true,
+            "pp_allowwidth": true,
+            "pp_allowheight": true,
+            "pp_body": 636.21,
+            "pp_cap": 238.21,
+            "pp_capdiam": 2873.12,
+            "pp_length": 2873.2,
+            "pp_diameter": 237.47,
+            "pp_width": 238.21,
+            "pp_height": 123.41,
+            "pp_weight": 100.32,
+            "pp_c1": "A1",
+            "pp_c2": "P3",
+            "pp_c3": "E5",
+            "pp_c4": "42",
+            "pp_description": "pp descripcion erik",
+            "pp_type": 5,
+            "pp_unit": 4,
+            "updated": "2020-12-01"
+        }
+    }).fetch().then((t) => console.log("test3", t));
+
+
+    /*await Client.method("listPacksPerSite", {
         sede: {site_name: "San Jose CR"}
     }).fetch().then(console.log);
     
