@@ -6,11 +6,12 @@ const pallets = require("./methods/pallets");
 const shipments = require("./methods/shipments");
 const trucks = require("./methods/trucks");
 const trucks_routes = require("./methods/trucks_routes");
+const consignments = require("./methods/consignments");
 
 let packagesMethods = {
-    boards, classes, packages, 
+    boards, classes, packages,
     boxes, pallets, shipments,
-    trucks, trucks_routes
+    trucks, trucks_routes, consignments
 };
 
 let methods = {};
