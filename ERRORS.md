@@ -138,8 +138,6 @@ En este metodo ocurre un error desconocido que hace explotar esta llamada al ser
    ]
 }</i>
 
-### PENDING METHODS FOR REVIEW
-
 ### addEditPackage
 
 <p>En la documentación el key dice que es site en los parametros pero el key es site_name</p>
@@ -183,6 +181,8 @@ console.log(response);
 { "error": "The key [SITE_NAME] does not exist, only the following keys are available: [pp_allowdiam,pp_allowheight,pp_allowlength,pp_allowwidth,pp_body,pp_c1,pp_c2,pp_c3,pp_c4,pp_cap,pp_capdiam,pp_code,pp_description,pp_diameter,pp_height,pp_length,pp_type,pp_unit,pp_weight,pp_width,site,updated]." }
 ```
 
+<i>fixed</i>
+
 ### deleteCalcsWithShipmentID
 
 <p>La documentación no esta correcta debido a que la variable no lleva el nombre userinfo sino shipmentinfo</p>
@@ -191,6 +191,8 @@ console.log(response);
 ```json 
 { "error": "The parameter [shipmentinfo] to function [deleteCalcsWithShipmentID] is required but was not passed in." }
 ```
+
+<i>fixed</i>
 
 ### queryTruckFillShipments
 
@@ -201,6 +203,7 @@ console.log(response);
 { "error": "The key [DBNAME] does not exist, only the following keys are available: [date1,date2]." }
 ```
 
+<i>fixed</i>
 
 ### calcTruckBay
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
@@ -210,6 +213,7 @@ console.log(response);
 { "error": "The parameter [baydata] to function [calcTruckBay] is required but was not passed in." }
 ```
 
+<i>this method is not ready yet so its reference was removed. It should not show up</i>
 
 ### dumpEmptyRoute
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
@@ -219,6 +223,21 @@ console.log(response);
 { "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
 ```
 
+<i>fixed</i>
+
+```
+{
+	"warehouse":"cfm2",
+	"driver_id":"6322338",
+	"driver_name":"Tomas Sancio",
+	"route_date":"2021-03-23 08:55:23",
+	"route_name":"607",
+	"truck_name":"258",
+	"comment":"000009800",
+	"site_name":"San Jose CR"
+}
+```
+
 ### addShipItemToRoute
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
 <b>response: </b>
@@ -226,12 +245,47 @@ console.log(response);
 ```json
 { "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
 ```
+
+<i>fixed the documentation</i>
+
+```
+{
+  "route_name":"607",
+  "route_date":"2021-03-23 08:55:23",
+  "comment":"000009800",
+  "po":"020011",
+  "prod_id":"63585",
+  "client_id":"030045",
+  "client_name":"Quesos Los Palos Grandes",
+  "prod_seq":1,
+  "prod_q":130,
+  "trip":1,
+  "site_name":"San Jose CR"
+}
+```
+
 ### createBatchWithRoutes
 <p>Error desconocido, al parecer es por el tipo de dato recibido pero no he podico identificarlo</p>
 <b>response: </b>
 
 ```json 
 { "error": "Can't cast String [1] to a value of type [Array]" }
+```
+
+<i>fixed</i>
+
+```
+{
+  "user_name":"tsancio_cr",
+  "site_name":"San Jose CR",
+  "routes":[
+	{
+		"route_name": "607",
+		"route_date": "2021-03-23 08:55:23",
+		"comment": "000009800"
+	}
+  ]
+}
 ```
 
 ### dumpFullRoutes
@@ -242,12 +296,36 @@ console.log(response);
 { "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
 ```
 
+<i>it works with the following data</i>
+
+```
+{
+	"site_name":"San Jose CR",
+	"user_name":"tsancio_cr",
+	"column_names":"warehouse,driver_id,driver_name,truck_name,comment,route_date,route_name,po,client_id,client_name,prod_id,prd_comment,prod_seq,prod_q,trip",
+	"column_separator":",",
+	"overwrite_trips":true,
+	"column_data":"
+		Jose,6322338,Tomas,T11679,NA,210311,Ruta1,10000,1001,Cliente1001,1000018496,NA,1,1000,1
+		Jose,8675309,Claudia,T11787,NA,210311,Ruta2,20000,1002,Cliente1002,1000018497,NA,1,200,1
+		Jose,28324864,Matteo,T10873,NA,210311,Ruta2,30000,1003,Cliente1003,1000018528,NA,1,180,1
+		Jose,28324864,Matteo,T10873,NA,210311,Ruta2,30000,1003,Cliente1003,1000019435,NA,1,500,1	
+	"
+}
+```
+
 ### searchRoutesWithString
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
 <b>response: </b>
 
 ```json
 { "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
+```
+
+<i>it works with the following input</i>
+
+```
+{"site_name":"San Jose CR","search_term":"route_name","snippet":"607"}
 ```
 
 ### getTransportStatus
@@ -258,5 +336,6 @@ console.log(response);
 { "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
 ```
 
+<i>this works</i>
 
 
