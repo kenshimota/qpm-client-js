@@ -1,99 +1,186 @@
 # Documentation the errors into QPM API
 
+## table methods with errors and not documentation
+
+<table>
+<thead>
+	<tr>
+		<th>Service</th>
+		<th>Method</th>
+		<th>Has Documentation?</th>
+		<th>Works?</th>
+		<th>Description Bugs</th>
+	</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<br/> <br/>
+
 ## methods with error
 
 ### updatePropertiesForBoxID
-Cuando envias un id no encontrado solo returna 0 y no reporta 
+
+Cuando envias un id no encontrado solo returna 0 y no reporta
 que hubo un error de un BoxId no encontrado.
 
+<i>this has been fixed, please try again</i>
+
 ### addBoxForCalc
-Cuando realizas una solicitud dice que no existe el key box_class en la solicitud, 
+
+Cuando realizas una solicitud dice que no existe el key box_class en la solicitud,
 pero no esta documentado. con referencia a ello.
 <b>response: </b>
+
 ```json
-{ "error": "The key [BOX_CLASS] does not exist, but there is a similar key with name [box_allowheight] available. Here is a complete list of all available keys: [box_allowheight,box_allowlength,box_allowwidth,box_amount,box_code,box_color,box_desc,box_extheight,box_extlength,box_extwidth,box_unit,box_weight,shipment_id]." }
+{
+  "error": "The key [BOX_CLASS] does not exist, but there is a similar key with name [box_allowheight] available. Here is a complete list of all available keys: [box_allowheight,box_allowlength,box_allowwidth,box_amount,box_code,box_color,box_desc,box_extheight,box_extlength,box_extwidth,box_unit,box_weight,shipment_id]."
+}
 ```
 
+<i>fixed</i>
+
 ### dumpNuPastedBoxes
+
 Al ejecutar una solicitud, el metodo por alguna razón responde de una forma extraña. me da el error respondido abajo no logro entender sucedido
 
 ```javascript
-    // method and params send
-    Client.method("dumpNuPastedBoxes", {
-        'items': {						
-            'site': 'San Jose CR',
-			'box_code': '400',
-			'box_desc': '100',
-			'box_class1': '1',
-			'box_class2': '2',
-			'box_color': 'Blue',
-			'box_comp': '10',
-			'box_extlength': '10',
-			'box_extwidth': '10',
-			'box_extheight': '10',
-		    'box_weight': '10',
-			'box_unit': '10',
-		}
-    });
-    
-    // request data
-    let response = await Client.fetch().then((record) => record);
-    console.log(response); 
+// method and params send
+Client.method('dumpNuPastedBoxes', {
+  items: {
+    site: 'San Jose CR',
+    box_code: '400',
+    box_desc: '100',
+    box_class1: '1',
+    box_class2: '2',
+    box_color: 'Blue',
+    box_comp: '10',
+    box_extlength: '10',
+    box_extwidth: '10',
+    box_extheight: '10',
+    box_weight: '10',
+    box_unit: '10',
+  },
+});
+
+// request data
+let response = await Client.fetch().then(record => record);
+console.log(response);
 ```
 
 <b>response: </b> Can't cast String [{"site":"San Jose CR","box_code":"400","box_desc":"100","box_class1":"1","box_class2":"2","box_color...] to a value of type [Array]
 
+<i>fixed</i>
+
 ### dumpShortBox
+
 <p>En la documentación no esta en la lista de parametros el siguiente Key.</p>
 <b>response: </b>
 
 ```json
-{ "error": "The key [BOARD_TYPE] does not exist, only the following keys are available: [box_class,box_class1,box_class2,box_code,box_color,box_comp,box_desc,box_extheight,box_extlength,box_extwidth,box_unit,box_weight,site_name]." }
+{
+  "error": "The key [BOARD_TYPE] does not exist, only the following keys are available: [box_class,box_class1,box_class2,box_code,box_color,box_comp,box_desc,box_extheight,box_extlength,box_extwidth,box_unit,box_weight,site_name]."
+}
 ```
+
+<i>fixed</i>
+
 ### getEmptyBoxInfo
+
 En la documentación aparece 3 parametros pero con solo enviar el ID ya te devuelve la información del Box, no comprendo si es que los otros parametros son opcionales. Pero cuando envio los otros 2 parametros, solo envia un error notificando que <b style = "color: red;">Box not Found</b>.
 
+<i>fixed, you can try either the id parameter or the box_code and site_name parameters</i>
+
 ### listBoxesPerClass
+
 <p>En la documentación no esta en la lista de parametros el siguiente Key.</p>
 <b>response: </b>
 
 ```json
-{ "error": "The key [ASSET_CLASS] does not exist, only the following keys are available: [class_name,site_name]." }
+{
+  "error": "The key [ASSET_CLASS] does not exist, only the following keys are available: [class_name,site_name]."
+}
 ```
 
+<i>fixed</i>
+
 ### listBoxesPerSiteClassUnit
+
 <p>En la documentación no esta en la lista de parametros el siguiente Key. aparece es boxids</p>
 <b>response: </b>
 
 ```json
-{ "error": "The parameter [data] to function [listBoxesPerSiteClassUnit] is required but was not passed in." }
+{
+  "error": "The parameter [data] to function [listBoxesPerSiteClassUnit] is required but was not passed in."
+}
 ```
+
+<i>Fixed</i>
+
 ### listSKUsFromSite
+
 <p>Debemos evaluar el siguiente metodo, debido a que pude notar que cada solicitud da una respuesta que tarda 12500ms, es un poco lento me parece para un consulta.</p>
 
+<i>this function is good for sites with few SKUs. For sites with a large list (like the one in the example), use the "paged" functions like getSKUsFromSite_paged, which use ranges and are quicker</i>
 
 ### updateBoxConstraints
+
 <p>El metodo no tiene el mismo parametro que se establece en la documentación</p>
 <b>response</b>
 
 ```json
-{ "error": "The parameter [constraints] to function [updateBoxConstraints] is required but was not passed in." }
+{
+  "error": "The parameter [constraints] to function [updateBoxConstraints] is required but was not passed in."
+}
 ```
+
+<i>fixed</i>
 
 ### deleteShipmentWithID
+
 <p>El metodo no tiene el mismo parametro que se establece en la documentación</p>
 <b>response</b>
 
 ```json
-{ "error": "The parameter [shipid] to function [deleteShipmentWithID] is required but was not passed in." }
+{
+  "error": "The parameter [shipid] to function [deleteShipmentWithID] is required but was not passed in."
+}
 ```
+
+<i>fixed</i>
 
 ### dumpConsignmentPart
+
 En este metodo ocurre un error desconocido que hace explotar esta llamada al servidor.
 
-```json 
+```json
 { "error": "Can't cast String [11] to a value of type [Array]" }
 ```
+
+<i>Please indicate the input you used to get the error. I tried
+{
+"site_name":"San Jose CR",
+"user_name":"tsancio_cr",
+"cargo_date":"2021-03-21 12:00:00",
+"cargo_name":"TestLoad01",
+"origin":"Guatemala",
+"destination":"Guatepeor",
+"vessel":"Luisa",
+"comment":"000142",
+"cargo_items":[
+{
+"po":"000014X",
+"client_name":"Yepex y co",
+"client_id":"100265",
+"box_amount":46,
+"sku_name":"Test20210321A",
+"sequence":1
+}
+]
+}</i>
+
+## PENDING METHODS FOR REVIEW
 
 ### addEditPackage
 
@@ -101,41 +188,44 @@ En este metodo ocurre un error desconocido que hace explotar esta llamada al ser
 
 ```javascript
 // method to use and params
-Client.method("addEditPackage", {
-	'pinfo': {
-	'	site': 'San Jose CR',
-		'pp_code': '1000',
-		'pp_allowlength': '100',
-		'pp_allowdiam': '100',
-		'pp_allowwidth': '100',
-		'pp_allowheight': '100',
-		'pp_body': '72',
-		'pp_cap': '100',
-		'pp_capdiam': '100',
-		'pp_length': '10',
-		'pp_diameter': '100',
-		'pp_width': '100',
-		'pp_height': '100',
-		'pp_weight': '100',
-		'pp_c1': '100',
-		'pp_c2': '100',
-		'pp_c3': '100',
-		'pp_c4': '100',
-		'pp_description': 'descriocion',
-		'pp_type': '1',
-		'pp_unit': '120',
-		'updated': '2020-12-01',
-	}
+Client.method('addEditPackage', {
+  pinfo: {
+    '	site': 'San Jose CR',
+    pp_code: '1000',
+    pp_allowlength: '100',
+    pp_allowdiam: '100',
+    pp_allowwidth: '100',
+    pp_allowheight: '100',
+    pp_body: '72',
+    pp_cap: '100',
+    pp_capdiam: '100',
+    pp_length: '10',
+    pp_diameter: '100',
+    pp_width: '100',
+    pp_height: '100',
+    pp_weight: '100',
+    pp_c1: '100',
+    pp_c2: '100',
+    pp_c3: '100',
+    pp_c4: '100',
+    pp_description: 'descriocion',
+    pp_type: '1',
+    pp_unit: '120',
+    updated: '2020-12-01',
+  },
 });
 
 // request data
-let response = await Client.fetch().then((record) => record);
-console.log(response); 
+let response = await Client.fetch().then(record => record);
+console.log(response);
 ```
+
 <b>response</b>
 
 ```json
-{ "error": "The key [SITE_NAME] does not exist, only the following keys are available: [pp_allowdiam,pp_allowheight,pp_allowlength,pp_allowwidth,pp_body,pp_c1,pp_c2,pp_c3,pp_c4,pp_cap,pp_capdiam,pp_code,pp_description,pp_diameter,pp_height,pp_length,pp_type,pp_unit,pp_weight,pp_width,site,updated]." }
+{
+  "error": "The key [SITE_NAME] does not exist, only the following keys are available: [pp_allowdiam,pp_allowheight,pp_allowlength,pp_allowwidth,pp_body,pp_c1,pp_c2,pp_c3,pp_c4,pp_cap,pp_capdiam,pp_code,pp_description,pp_diameter,pp_height,pp_length,pp_type,pp_unit,pp_weight,pp_width,site,updated]."
+}
 ```
 
 ### deleteCalcsWithShipmentID
@@ -143,8 +233,10 @@ console.log(response);
 <p>La documentación no esta correcta debido a que la variable no lleva el nombre userinfo sino shipmentinfo</p>
 <b>response: </b>
 
-```json 
-{ "error": "The parameter [shipmentinfo] to function [deleteCalcsWithShipmentID] is required but was not passed in." }
+```json
+{
+  "error": "The parameter [shipmentinfo] to function [deleteCalcsWithShipmentID] is required but was not passed in."
+}
 ```
 
 ### queryTruckFillShipments
@@ -153,65 +245,80 @@ console.log(response);
 <b>response: </b>
 
 ```json
-{ "error": "The key [DBNAME] does not exist, only the following keys are available: [date1,date2]." }
+{
+  "error": "The key [DBNAME] does not exist, only the following keys are available: [date1,date2]."
+}
 ```
 
-
 ### calcTruckBay
+
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
 <b>response: </b>
 
-```json 
+```json
 { "error": "The parameter [baydata] to function [calcTruckBay] is required but was not passed in." }
 ```
 
-
 ### dumpEmptyRoute
+
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
 <b>response: </b>
 
 ```json
-{ "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
+{
+  "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]"
+}
 ```
 
 ### addShipItemToRoute
+
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
 <b>response: </b>
 
 ```json
-{ "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
+{
+  "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]"
+}
 ```
+
 ### createBatchWithRoutes
+
 <p>Error desconocido, al parecer es por el tipo de dato recibido pero no he podico identificarlo</p>
 <b>response: </b>
 
-```json 
+```json
 { "error": "Can't cast String [1] to a value of type [Array]" }
 ```
 
 ### dumpFullRoutes
+
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
 <b>response: </b>
 
 ```json
-{ "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
+{
+  "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]"
+}
 ```
 
 ### searchRoutesWithString
+
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
 <b>response: </b>
 
 ```json
-{ "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
+{
+  "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]"
+}
 ```
 
 ### getTransportStatus
+
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
 <b>response: </b>
 
 ```json
-{ "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
+{
+  "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]"
+}
 ```
-
-
-
