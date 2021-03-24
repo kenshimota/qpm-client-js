@@ -6,6 +6,8 @@
 Cuando envias un id no encontrado solo returna 0 y no reporta 
 que hubo un error de un BoxId no encontrado.
 
+<i>this has been fixed, please try again</i>
+
 ### addBoxForCalc
 Cuando realizas una solicitud dice que no existe el key box_class en la solicitud, 
 pero no esta documentado. con referencia a ello.
@@ -13,6 +15,8 @@ pero no esta documentado. con referencia a ello.
 ```json
 { "error": "The key [BOX_CLASS] does not exist, but there is a similar key with name [box_allowheight] available. Here is a complete list of all available keys: [box_allowheight,box_allowlength,box_allowwidth,box_amount,box_code,box_color,box_desc,box_extheight,box_extlength,box_extwidth,box_unit,box_weight,shipment_id]." }
 ```
+
+<i>fixed</i>
 
 ### dumpNuPastedBoxes
 Al ejecutar una solicitud, el metodo por alguna razón responde de una forma extraña. me da el error respondido abajo no logro entender sucedido
@@ -43,6 +47,8 @@ Al ejecutar una solicitud, el metodo por alguna razón responde de una forma ext
 
 <b>response: </b> Can't cast String [{"site":"San Jose CR","box_code":"400","box_desc":"100","box_class1":"1","box_class2":"2","box_color...] to a value of type [Array]
 
+<i>fixed</i>
+
 ### dumpShortBox
 <p>En la documentación no esta en la lista de parametros el siguiente Key.</p>
 <b>response: </b>
@@ -50,8 +56,13 @@ Al ejecutar una solicitud, el metodo por alguna razón responde de una forma ext
 ```json
 { "error": "The key [BOARD_TYPE] does not exist, only the following keys are available: [box_class,box_class1,box_class2,box_code,box_color,box_comp,box_desc,box_extheight,box_extlength,box_extwidth,box_unit,box_weight,site_name]." }
 ```
+
+<i>fixed</i>
+
 ### getEmptyBoxInfo
 En la documentación aparece 3 parametros pero con solo enviar el ID ya te devuelve la información del Box, no comprendo si es que los otros parametros son opcionales. Pero cuando envio los otros 2 parametros, solo envia un error notificando que <b style = "color: red;">Box not Found</b>.
+
+<i>fixed, you can try either the id parameter or the box_code and site_name parameters</i>
 
 ### listBoxesPerClass
 <p>En la documentación no esta en la lista de parametros el siguiente Key.</p>
@@ -61,6 +72,8 @@ En la documentación aparece 3 parametros pero con solo enviar el ID ya te devue
 { "error": "The key [ASSET_CLASS] does not exist, only the following keys are available: [class_name,site_name]." }
 ```
 
+<i>fixed</i>
+
 ### listBoxesPerSiteClassUnit
 <p>En la documentación no esta en la lista de parametros el siguiente Key. aparece es boxids</p>
 <b>response: </b>
@@ -68,9 +81,13 @@ En la documentación aparece 3 parametros pero con solo enviar el ID ya te devue
 ```json
 { "error": "The parameter [data] to function [listBoxesPerSiteClassUnit] is required but was not passed in." }
 ```
+
+<i>Fixed</i>
+
 ### listSKUsFromSite
 <p>Debemos evaluar el siguiente metodo, debido a que pude notar que cada solicitud da una respuesta que tarda 12500ms, es un poco lento me parece para un consulta.</p>
 
+<i>this function is good for sites with few SKUs. For sites with a large list (like the one in the example), use the "paged" functions like getSKUsFromSite_paged, which use ranges and are quicker</i>
 
 ### updateBoxConstraints
 <p>El metodo no tiene el mismo parametro que se establece en la documentación</p>
@@ -80,6 +97,8 @@ En la documentación aparece 3 parametros pero con solo enviar el ID ya te devue
 { "error": "The parameter [constraints] to function [updateBoxConstraints] is required but was not passed in." }
 ```
 
+<i>fixed</i>
+
 ### deleteShipmentWithID
 <p>El metodo no tiene el mismo parametro que se establece en la documentación</p>
 <b>response</b>
@@ -88,12 +107,36 @@ En la documentación aparece 3 parametros pero con solo enviar el ID ya te devue
 { "error": "The parameter [shipid] to function [deleteShipmentWithID] is required but was not passed in." }
 ```
 
+<i>fixed</i>
+
 ### dumpConsignmentPart
 En este metodo ocurre un error desconocido que hace explotar esta llamada al servidor.
 
 ```json 
 { "error": "Can't cast String [11] to a value of type [Array]" }
 ```
+
+<i>Please indicate the input you used to get the error. I tried 
+{
+   "site_name":"San Jose CR",
+   "user_name":"tsancio_cr",
+   "cargo_date":"2021-03-21 12:00:00",
+   "cargo_name":"TestLoad01",
+   "origin":"Guatemala",
+   "destination":"Guatepeor",
+   "vessel":"Luisa",
+   "comment":"000142",
+   "cargo_items":[  
+	  {  
+		 "po":"000014X",
+		 "client_name":"Yepex y co",
+		 "client_id":"100265",
+		 "box_amount":46,
+		 "sku_name":"Test20210321A",
+		 "sequence":1
+	  }
+   ]
+}</i>
 
 ### addEditPackage
 
@@ -138,6 +181,8 @@ console.log(response);
 { "error": "The key [SITE_NAME] does not exist, only the following keys are available: [pp_allowdiam,pp_allowheight,pp_allowlength,pp_allowwidth,pp_body,pp_c1,pp_c2,pp_c3,pp_c4,pp_cap,pp_capdiam,pp_code,pp_description,pp_diameter,pp_height,pp_length,pp_type,pp_unit,pp_weight,pp_width,site,updated]." }
 ```
 
+<i>fixed</i>
+
 ### deleteCalcsWithShipmentID
 
 <p>La documentación no esta correcta debido a que la variable no lleva el nombre userinfo sino shipmentinfo</p>
@@ -146,6 +191,8 @@ console.log(response);
 ```json 
 { "error": "The parameter [shipmentinfo] to function [deleteCalcsWithShipmentID] is required but was not passed in." }
 ```
+
+<i>fixed</i>
 
 ### queryTruckFillShipments
 
@@ -156,6 +203,7 @@ console.log(response);
 { "error": "The key [DBNAME] does not exist, only the following keys are available: [date1,date2]." }
 ```
 
+<i>fixed</i>
 
 ### calcTruckBay
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
@@ -165,6 +213,7 @@ console.log(response);
 { "error": "The parameter [baydata] to function [calcTruckBay] is required but was not passed in." }
 ```
 
+<i>this method is not ready yet so its reference was removed. It should not show up</i>
 
 ### dumpEmptyRoute
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
@@ -174,6 +223,21 @@ console.log(response);
 { "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
 ```
 
+<i>fixed</i>
+
+```
+{
+	"warehouse":"cfm2",
+	"driver_id":"6322338",
+	"driver_name":"Tomas Sancio",
+	"route_date":"2021-03-23 08:55:23",
+	"route_name":"607",
+	"truck_name":"258",
+	"comment":"000009800",
+	"site_name":"San Jose CR"
+}
+```
+
 ### addShipItemToRoute
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
 <b>response: </b>
@@ -181,12 +245,47 @@ console.log(response);
 ```json
 { "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
 ```
+
+<i>fixed the documentation</i>
+
+```
+{
+  "route_name":"607",
+  "route_date":"2021-03-23 08:55:23",
+  "comment":"000009800",
+  "po":"020011",
+  "prod_id":"63585",
+  "client_id":"030045",
+  "client_name":"Quesos Los Palos Grandes",
+  "prod_seq":1,
+  "prod_q":130,
+  "trip":1,
+  "site_name":"San Jose CR"
+}
+```
+
 ### createBatchWithRoutes
 <p>Error desconocido, al parecer es por el tipo de dato recibido pero no he podico identificarlo</p>
 <b>response: </b>
 
 ```json 
 { "error": "Can't cast String [1] to a value of type [Array]" }
+```
+
+<i>fixed</i>
+
+```
+{
+  "user_name":"tsancio_cr",
+  "site_name":"San Jose CR",
+  "routes":[
+	{
+		"route_name": "607",
+		"route_date": "2021-03-23 08:55:23",
+		"comment": "000009800"
+	}
+  ]
+}
 ```
 
 ### dumpFullRoutes
@@ -197,12 +296,36 @@ console.log(response);
 { "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
 ```
 
+<i>it works with the following data</i>
+
+```
+{
+	"site_name":"San Jose CR",
+	"user_name":"tsancio_cr",
+	"column_names":"warehouse,driver_id,driver_name,truck_name,comment,route_date,route_name,po,client_id,client_name,prod_id,prd_comment,prod_seq,prod_q,trip",
+	"column_separator":",",
+	"overwrite_trips":true,
+	"column_data":"
+		Jose,6322338,Tomas,T11679,NA,210311,Ruta1,10000,1001,Cliente1001,1000018496,NA,1,1000,1
+		Jose,8675309,Claudia,T11787,NA,210311,Ruta2,20000,1002,Cliente1002,1000018497,NA,1,200,1
+		Jose,28324864,Matteo,T10873,NA,210311,Ruta2,30000,1003,Cliente1003,1000018528,NA,1,180,1
+		Jose,28324864,Matteo,T10873,NA,210311,Ruta2,30000,1003,Cliente1003,1000019435,NA,1,500,1	
+	"
+}
+```
+
 ### searchRoutesWithString
 <p>La documentación no contiene el siguiente key, y en la cual me notifica que hay un error</p>
 <b>response: </b>
 
 ```json
 { "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
+```
+
+<i>it works with the following input</i>
+
+```
+{"site_name":"San Jose CR","search_term":"route_name","snippet":"607"}
 ```
 
 ### getTransportStatus
@@ -213,5 +336,6 @@ console.log(response);
 { "error": "component [QPMCalcServer.cfc.QPMRouteBatchService] has no remote function with name [dumpEmptyRoute]" }
 ```
 
+<i>this works</i>
 
 
