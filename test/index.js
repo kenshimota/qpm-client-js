@@ -8,13 +8,12 @@ const Client = QPM({
 });
 
 // esta funcion se encarga de buscar que methodos hacen falta por documentar
-/*Client.getMethodsNotDefined().then(methods => {
-  let i = 1;
-  methods.forEach((e, key) => {
-    console.log(`- ${i} --> ${e}`);
-    i++;
-  });
-});*/
+Client.getMethodsNotDefined().then(methods => {
+  let a = [];
+  methods.forEach(r => a.push(r));
+  a.sort((n1, n2) => (n1.hasDocumentation > n2.hasDocumentation ? -1 : 1));
+  console.table(a);
+});
 
 // ---------- Main -----------
 async function main() {
@@ -282,7 +281,7 @@ async function main() {
   console.log(box);
 
   /*Client.method('updatePropertiesForBoxID', { fullbox_id: { fullbox_id: 1 } });
-  let fullboxid = await Client.fetch().then(t => t);*/
+  let fullboxid = await Client.fetch().then(t => t);
 
   let pack = await Client.method('addEditPackage', {
     pinfo: {
@@ -471,7 +470,7 @@ async function main() {
     assetid: { id: asset.id },
   })
     .fetch()
-    .then(console.log);
+    .then(console.log);*/
 }
 
 main();

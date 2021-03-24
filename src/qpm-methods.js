@@ -23,15 +23,15 @@ for (let i in packagesMethods) {
 
 // listado de metodos para estructuras de datos
 const reports = [
-    "/QPMCalcServer/cfc/QPMAssetClassService.cfc?wsdl",
-    "/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl",
-    "/QPMCalcServer/cfc/QPMPackageService.cfc?wsdl",
-    "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl",
-    "/QPMCalcServer/cfc/QPMCargoService.cfc?wsdl",
-    "/QPMCalcServer/cfc/QPMPalletService.cfc?wsdl",
-    "/QPMCalcServer/cfc/QPMShipmentService.cfc?wsdl",
-    "/QPMCalcServer/cfc/QPMTruckService.cfc?wsdl",
-    "/QPMCalcServer/cfc/QPMRouteBatchService.cfc?wsdl"
+    {url: "/QPMCalcServer/cfc/QPMAssetClassService.cfc?wsdl", category: "classes"},
+    {url: "/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl",  category: "boards"},
+    {url: "/QPMCalcServer/cfc/QPMPackageService.cfc?wsdl", category: "packs"},
+    {url: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl", category: "boxes"},
+    {url: "/QPMCalcServer/cfc/QPMCargoService.cfc?wsdl", category: "cargo"},
+    {url: "/QPMCalcServer/cfc/QPMPalletService.cfc?wsdl", category: "pallets"},
+    {url: "/QPMCalcServer/cfc/QPMShipmentService.cfc?wsdl", category: "shipments"},
+    {url: "/QPMCalcServer/cfc/QPMTruckService.cfc?wsdl", category: "trucks"},
+    {url: "/QPMCalcServer/cfc/QPMRouteBatchService.cfc?wsdl", category: "routes"}
 ];
 
 module.exports = { methods, reports };

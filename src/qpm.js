@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 const { fetchSync } = require('./fetchSync');
 const { methods, reports } = require('./qpm-methods');
 
@@ -39,8 +40,8 @@ const QPM = config => ({
       const { username, password, server } = this.valide();
       let response = null;
       let elements = null;
-      for (var i = 0; i < reports.length; i++) {
-        uri = `${server}${reports[i]}`;
+      for (let i in reports) {
+        uri = `${server}${reports[i].url}`;
         response = await fetchSync(uri, {
           method: 'GET',
           auth: { username, password },
@@ -62,9 +63,8 @@ const QPM = config => ({
             elements[index].attributes.name.search('Response') > -1
           ) {
             let method = elements[index].attributes.name.replace('Response', '');
-            this.methodsNotAdd.has(method) || methods[method]
-              ? null
-              : this.methodsNotAdd.add(method);
+            if (!this.methodsNotAdd.has(method) && !methods[method])
+              this.methodsNotAdd.add({ method, category: reports[i].category });
           }
         }
       }
