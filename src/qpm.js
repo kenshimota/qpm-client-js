@@ -63,8 +63,34 @@ const QPM = config => ({
             elements[index].attributes.name.search('Response') > -1
           ) {
             let method = elements[index].attributes.name.replace('Response', '');
-            if (!this.methodsNotAdd.has(method) && !methods[method])
-              this.methodsNotAdd.add({ method, category: reports[i].category });
+            if (!this.methodsNotAdd.has(method) && !methods[method]) {
+              let urlMethod = `${server}/QPMCalcServer/api/${reports[i].category}/${method}.cfm`;
+
+              let result = await fetch(urlMethod, {
+                headers: {
+                  accept:
+                    'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                  'accept-language': 'en-US,en;q=0.9',
+                  'cache-control': 'no-cache',
+                  pragma: 'no-cache',
+                  'upgrade-insecure-requests': '1',
+                  cookie:
+                    'cfid=80a70d41-de36-46f5-8266-9270b6253677; cftoken=0; CFAUTHORIZATION_QPMCALCSERVER=YWRtaW5fbGluMDAxAWtvb25hMDAxAVNpdGVNYW5hZ2Vy; __utmc=209317463; __utmz=209317463.1615232698.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=209317463.2038005220.1615232698.1615355440.1615876653.3',
+                },
+                referrerPolicy: 'no-referrer-when-downgrade',
+                body: null,
+                method: 'GET',
+                mode: 'cors',
+                credentials: 'include',
+              }).then(t => t);
+
+              if (result.status != 200)
+                this.methodsNotAdd.add({
+                  method,
+                  category: reports[i].category,
+                  status: result.status == 200,
+                });
+            }
           }
         }
       }

@@ -106,7 +106,7 @@ const pallets = {
 
     "palletFillFromDims": {
         method: "POST",
-        uri: "/QPMCalcServer/cfc/QPMPalletService.cfc?wsdl&method=palletFillFromDims"
+        uri: "/QPMCalcServer/cfc/QPMPalletCalc.cfc?method=palletFillFromDims"
     },
 
     "palletFillsFromShipmentDims": {
