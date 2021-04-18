@@ -1,79 +1,88 @@
 const boxes = {
-	
-	"addBoxForCalc": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=addBoxForCalc"
-	},
+  addBoxForCalc: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=addBoxForCalc',
+  },
 
-	"addEditEmptyBox": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=addEditEmptyBox"
-	},
+  addEditEmptyBox: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=addEditEmptyBox',
+  },
 
-	"deleteEmptyBox": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=deleteEmptyBox"
-	},
+  deleteEmptyBox: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=deleteEmptyBox',
+  },
 
-	"deleteEmptyBoxes": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=deleteEmptyBoxes"
-	},
+  deleteEmptyBoxes: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=deleteEmptyBoxes',
+  },
 
-	"deleteFullBox": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=deleteFullBox"
-	},
+  deleteFullBox: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=deleteFullBox',
+  },
 
-	"dumpNuPastedBoxes": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=dumpNuPastedBoxes"
-	},
+  dumpNuPastedBoxes: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=dumpNuPastedBoxes',
+  },
 
-	"dumpShortBox": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=dumpShortBox"
-	},
+  dumpShortBox: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=dumpShortBox',
+  },
 
-	"getEmptyBoxInfo": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=getEmptyBoxInfo"
-	},
+  getEmptyBoxInfo: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=getEmptyBoxInfo',
+  },
 
-	"getShortBoxInputData": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=getShortBoxInputData"
-	},
+  getShortBoxInputData: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=getShortBoxInputData',
+  },
 
-	"listBoxesPerClass": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=listBoxesPerClass"
-	},
+  listBoxesPerClass: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=listBoxesPerClass',
+  },
 
-	"listClassNamesForBoxesInSite": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=listClassNamesForBoxesInSite"
-	},
+  listClassNamesForBoxesInSite: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=listClassNamesForBoxesInSite',
+  },
 
-	"listBoxesPerSiteClassUnit": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=listBoxesPerSiteClassUnit"
-	},
+  listBoxesPerSiteClassUnit: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=listBoxesPerSiteClassUnit',
+  },
 
-	"listEmptyBoxesPerSite": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=listEmptyBoxesPerSite"
-	},
+  listEmptyBoxesPerSite: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=listEmptyBoxesPerSite',
+  },
 
-	"listSKUsFromSite": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=listSKUsFromSite"
-	},
+  listSKUsFromSite: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=listSKUsFromSite',
+  },
 
-	"updateBoxConstraints": {
-		method: "POST",
-		uri: "/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=updateBoxConstraints"
-	},
+  updateBoxConstraints: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?wsdl&method=updateBoxConstraints',
+  },
+
+  listSKUsFromSite_paged: {
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=listSKUsFromSite_paged',
+    method: 'POST',
+  },
+
+  searchFullBoxes: {
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=searchFullBoxes',
+    method: 'POST',
+  },
 };
 
 module.exports = boxes;
