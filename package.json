@@ -1,6 +1,6 @@
 {
   "name": "qpm-client-js",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Quick Pallet Maker - Connect API https://qpmserver.com ",
   "main": "index.js",
   "scripts": {

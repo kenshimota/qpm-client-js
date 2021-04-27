@@ -8,16 +8,16 @@ const Client = QPM({
 });
 
 // esta funcion se encarga de buscar que methodos hacen falta por documentar
-Client.getMethodsNotDefined().then(methods => {
+/*Client.getMethodsNotDefined().then(methods => {
   let a = [];
   methods.forEach(r => a.push(r));
   a.sort((n1, n2) => (n1.hasDocumentation > n2.hasDocumentation ? -1 : 1));
   console.table(a);
-});
+});*/
 
 // ---------- Main -----------
 async function main() {
-  let response = null; // variable data request catch
+  /* let response = null; // variable data request catch
 
   Client.method('getTransportStatus', {
     transports: { transports: 1 },
@@ -278,7 +278,20 @@ async function main() {
     },
   });
   let box = await Client.fetch().then(t => t);
-  console.log(box);
+  console.log(box);*/
+
+  let chars = {};
+
+  for (let i = 0; i <= 254; i++) {
+    let code = String.fromCharCode(i);
+    chars[code] = await Client.method('getPalletsByLoadType', {
+      loadinfo: { sede: 'San Jose CR', ltype: code },
+    })
+      .fetch()
+      .then(t => t);
+
+    console.log(chars);
+  }
 
   /*Client.method('updatePropertiesForBoxID', { fullbox_id: { fullbox_id: 1 } });
   let fullboxid = await Client.fetch().then(t => t);
@@ -473,4 +486,4 @@ async function main() {
     .then(console.log);*/
 }
 
-// main();
+main();

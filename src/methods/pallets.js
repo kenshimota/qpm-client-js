@@ -119,6 +119,11 @@ const pallets = {
     uri: '/QPMCalcServer/cfc/SVGPalletCalcs.cfc?method=fullPalletSVGFromData',
     responseType: 'text',
   },
+
+  getPalletsByLoadType: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMPalletService.cfc?method=getPalletsByLoadType',
+  },
 };
 
 module.exports = pallets;
