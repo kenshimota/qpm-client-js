@@ -282,16 +282,20 @@ async function main() {
 
   let chars = {};
 
-  for (let i = 0; i <= 254; i++) {
-    let code = String.fromCharCode(i);
-    chars[code] = await Client.method('getPalletsByLoadType', {
-      loadinfo: { sede: 'San Jose CR', ltype: code },
+  //for (let i = 0; i <= 254; i++) {
+  //let code = String.fromCharCode(i);
+  // chars[code] = await
+
+  console.log(
+    await Client.method('getPalletsByLoadType', {
+      loadinfo: { sede: 'San Jose CR', ltype: 'bt' },
     })
       .fetch()
-      .then(t => t);
+      .then(t => t)
+  );
 
-    console.log(chars);
-  }
+  //console.log(chars);
+  //}
 
   /*Client.method('updatePropertiesForBoxID', { fullbox_id: { fullbox_id: 1 } });
   let fullboxid = await Client.fetch().then(t => t);
