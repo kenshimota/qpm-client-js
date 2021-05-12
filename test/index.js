@@ -4,19 +4,23 @@ const { QPM } = require('../index');
 const Client = QPM({
   username: 'admin_lin001', // username
   password: 'koona001', // password
-  server: 'http://45.79.44.19:8888', // link and port the server
+  server: 'http://45.79.188.67:8888', // link and port the server
 });
-
-// esta funcion se encarga de buscar que methodos hacen falta por documentar
-/*Client.getMethodsNotDefined().then(methods => {
-  let a = [];
-  methods.forEach(r => a.push(r));
-  a.sort((n1, n2) => (n1.hasDocumentation > n2.hasDocumentation ? -1 : 1));
-  console.table(a);
-});*/
 
 // ---------- Main -----------
 async function main() {
+  Client.method('queryBoxLocationsFromPalletFills', {
+    fillids: { fillids: [1] },
+  })
+    .fetch()
+    .then(console.log);
+
+  Client.method('getBoxTextFromRouteId', {
+    routeid: { route_id: 1 },
+  });
+
+  Client.fetch().then(console.log);
+
   /* let response = null; // variable data request catch
 
   Client.method('getTransportStatus', {
@@ -279,24 +283,11 @@ async function main() {
   });
   let box = await Client.fetch().then(t => t);
   console.log(box);*/
-
-  let chars = {};
-
   //for (let i = 0; i <= 254; i++) {
   //let code = String.fromCharCode(i);
   // chars[code] = await
-
-  console.log(
-    await Client.method('getPalletsByLoadType', {
-      loadinfo: { sede: 'San Jose CR', ltype: 'bt' },
-    })
-      .fetch()
-      .then(t => t)
-  );
-
   //console.log(chars);
   //}
-
   /*Client.method('updatePropertiesForBoxID', { fullbox_id: { fullbox_id: 1 } });
   let fullboxid = await Client.fetch().then(t => t);
 

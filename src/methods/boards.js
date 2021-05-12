@@ -30,9 +30,9 @@ const boards = {
     uri: '/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=listBoardsPerSite',
   },
 
-  updatePropertiesForBoxID: {
+  addDefaultBoards: {
     method: 'POST',
-    uri: '/QPMCalcServer/cfc/QPMAssetClassService.cfc?wsdl&method=updatePropertiesForBoxID',
+    uri: '/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=addDefaultBoards',
   },
 };
 

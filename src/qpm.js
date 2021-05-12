@@ -65,7 +65,6 @@ const QPM = config => ({
             let method = elements[index].attributes.name.replace('Response', '');
             if (!this.methodsNotAdd.has(method) && !methods[method]) {
               let urlMethod = `${server}/QPMCalcServer/api/${reports[i].category}/${method}.cfm`;
-
               let result = await fetch(urlMethod, {
                 headers: {
                   accept:
@@ -78,18 +77,15 @@ const QPM = config => ({
                     'cfid=80a70d41-de36-46f5-8266-9270b6253677; cftoken=0; CFAUTHORIZATION_QPMCALCSERVER=YWRtaW5fbGluMDAxAWtvb25hMDAxAVNpdGVNYW5hZ2Vy; __utmc=209317463; __utmz=209317463.1615232698.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=209317463.2038005220.1615232698.1615355440.1615876653.3',
                 },
                 referrerPolicy: 'no-referrer-when-downgrade',
-                body: null,
                 method: 'GET',
-                mode: 'cors',
                 credentials: 'include',
               }).then(t => t);
 
-              if (result.status != 200)
-                this.methodsNotAdd.add({
-                  method,
-                  category: reports[i].category,
-                  status: result.status == 200,
-                });
+              this.methodsNotAdd.add({
+                method,
+                category: reports[i].category,
+                status: result.status == 200,
+              });
             }
           }
         }
@@ -100,6 +96,56 @@ const QPM = config => ({
       console.error(error);
       throw error;
     }
+  },
+
+  // funcion que se encarga de iniciar cesión
+  login: async function ({ username, password, server, calcdb, ctrldb }) {
+    try {
+      const { uri, method, responseType } = methods['logInServer'];
+      const url = `${server}${uri}`;
+
+      let response = await fetchSync(url, {
+        method,
+        body: { userinfo: { username, clave: password, calcdb, ctrldb } },
+        type: !responseType ? 'json' : responseType,
+      })
+        .then(r => r.response)
+        .catch(error => {
+          throw error;
+        });
+
+      // dando una respuesta correcta
+      if (!response == false && response.result == 'OK') {
+        this._config = {
+          ...this._config,
+          ...response,
+          username,
+          password,
+          server,
+        };
+
+        const data = await this.method('getSessionData', {
+          username: { username },
+        })
+          .fetch()
+          .then(t => t)
+          .catch(error => {
+            throw error;
+          });
+
+        this._config = { ...data, ...this._config };
+        response = { ...data, ...response };
+      }
+
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  // funcion que se encarga de obtener todo los datos de usuario
+  getCurrentUser: function () {
+    return this._config;
   },
 
   // funcion que se encarga de validar
@@ -130,7 +176,6 @@ const QPM = config => ({
     } catch (error) {
       console.error(error);
       throw error;
-      return false;
     }
   },
 });

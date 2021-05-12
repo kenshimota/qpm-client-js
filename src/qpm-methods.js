@@ -7,6 +7,9 @@ const shipments = require('./methods/shipments');
 const trucks = require('./methods/trucks');
 const trucks_routes = require('./methods/trucks_routes');
 const consignments = require('./methods/consignments');
+const axle = require('./methods/axle');
+const containers = require('./methods/containers');
+const users = require('./methods/users');
 
 let packagesMethods = {
   boards,
@@ -18,6 +21,9 @@ let packagesMethods = {
   trucks,
   trucks_routes,
   consignments,
+  axle,
+  containers,
+  users,
 };
 
 let methods = {};
@@ -39,6 +45,9 @@ const reports = [
   { url: '/QPMCalcServer/cfc/QPMShipmentService.cfc?wsdl', category: 'shipments' },
   { url: '/QPMCalcServer/cfc/QPMTruckService.cfc?wsdl', category: 'trucks' },
   { url: '/QPMCalcServer/cfc/QPMRouteBatchService.cfc?wsdl', category: 'routes' },
+  { url: '/QPMCalcServer/cfc/QPMAxleService.cfc?wsdl', category: 'axles' },
+  { url: '/QPMCalcServer/cfc/QPMContainerService.cfc?wsdl', category: 'containers' },
+  { url: '/QPMCalcServer/cfc/QPMUserService.cfc?wsdl', category: 'users' },
 ];
 
 module.exports = { methods, reports };

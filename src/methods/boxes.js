@@ -83,6 +83,116 @@ const boxes = {
     uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=searchFullBoxes',
     method: 'POST',
   },
+
+  addBoxesForCalc: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=addBoxForCalc',
+  },
+
+  addEditFillProperties: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=addEditFillProperties',
+  },
+
+  addEditFullBox: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=addEditFullBox',
+  },
+
+  convertBoxXMLtoJSON: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=convertBoxXMLtoJSON',
+  },
+
+  fillStdCases: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=fillStdCases',
+  },
+
+  getAllFullBoxCodes: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=getAllFullBoxCodes',
+  },
+
+  getBoxesFromShipment: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=getBoxesFromShipment',
+  },
+
+  getBoxPropertiesWithID: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=getBoxPropertiesWithID',
+  },
+
+  getBoxTextFromRouteId: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=getBoxTextFromRouteId',
+  },
+
+  getShortBoxInputData: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=getShortBoxInputData',
+  },
+
+  getSingleClosedRSC: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=getSingleClosedRSC',
+  },
+
+  listBoxesPerClass: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=listBoxesPerClass',
+  },
+
+  listBoxesPerSiteClassUnit: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=listBoxesPerSiteClassUnit',
+  },
+
+  listClassNamesForBoxesInSite: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=listClassNamesForBoxesInSite',
+  },
+
+  listEmptyBoxesForSite_paged: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=listEmptyBoxesForSite_paged',
+  },
+
+  listSKUsForPasting: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=listSKUsForPasting',
+  },
+
+  listSKUsFromSite: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=listSKUsFromSite',
+  },
+
+  queryBoxesFromRouteId: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=queryBoxesFromRouteId',
+  },
+
+  queryBoxLocationsFromPalletFills: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=queryBoxLocationsFromPalletFills',
+  },
+
+  quickBoxEdit: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=quickBoxEdit',
+  },
+
+  queryBoxLocationsFromPalletFills: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=queryBoxLocationsFromPalletFills',
+  },
+
+  queryBoxSummaryDataFromPalletFills: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=queryBoxSummaryDataFromPalletFills',
+  },
 };
 
 module.exports = boxes;
