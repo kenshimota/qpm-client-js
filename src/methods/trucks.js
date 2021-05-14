@@ -145,6 +145,10 @@ const trucks = {
     method: 'POST',
     uri: baseurl + 'addFleetTrucksFromPaste',
   },
+	addEditFleetTruck: {
+		method: 'POST',
+		uri: baseurl + 'addEditFleetTruck'
+	}
 };
 
 module.exports = trucks;
