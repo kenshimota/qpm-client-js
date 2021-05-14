@@ -1,5 +1,110 @@
+const baseurl = '/QPMCalcServer/cfc/QPMPalletService.cfc?wsdl&method=';
+
 const pallets = {
-  addEditPalletConstraints: {
+	queryPalletPatternsWithSite: {
+		method: "POST",
+		uri: baseurl + "queryPalletPatternsWithSite",
+	},
+
+	querySlabsFromSite: {
+		method: "POST",
+		uri: baseurl + "querySlabsFromSite" 
+	},
+
+	queryPalletPatternsWithBoxIds: {
+		method: "POST",
+		uri: baseurl + "queryPalletPatternsWithBoxIds"
+	},
+
+
+	removeAllSlabsFromPallet: {
+		method: "POST",
+		uri: baseurl + "removeAllSlabsFromPallet"
+	},
+
+	deletePatternsWithIds: {
+		method: "POST",
+		uri: baseurl + "deletePatternsWithIds" 
+	},
+
+	convertPalletXMLtoJSON: {
+		method: "POST",
+		uri: baseurl + "convertPalletXMLtoJSON"
+	},
+
+	fixSlabList: {
+		method: "POST",
+		uri: baseurl + "fixSlabList"
+	},
+
+	getBayDataFromTruck: {
+		method: "POST",
+		uri: baseurl + "getBayDataFromTruck"
+	},
+
+	getPalletGap: {
+		method: "POST",
+		uri: baseurl + "getPalletGap",
+	},
+
+	getFullPalletInfo: {
+		method: "POST",
+		uri: baseurl + "getFullPalletInfo"
+	},
+
+	dumpSlabToDatabase: {
+		"method": "POST",
+		uri: baseurl + "dumpSlabToDatabase"
+	},
+
+
+	updateDefaultWithId: {
+		method: "POST",
+		uri: baseurl + "updateDefaultWithId"
+	},
+
+	getFullPalletsFromBoxIds: {
+		method: "POST",
+		uri: baseurl + "getFullPalletsFromBoxIds"
+	},
+
+	queryOrphanStdPalletIds: {
+		method: "POST",
+		uri: baseurl + "queryOrphanStdPalletIds"
+	},
+
+	queryDisabledPallets: {
+		method: "POST",
+		uri: baseurl + "queryDisabledPallets"
+	},
+
+	queryMissingLocations: {
+		method: "POST",
+		uri: baseurl + "queryMissingLocations"
+	},
+
+	get2DSVGFromArrangement: {
+		method: "POST",
+		uri: baseurl + "get2DSVGFromArrangement"
+	},
+
+	dumpEmptyPallet: {
+		method: "POST",
+		uri: baseurl + "dumpEmptyPallet",
+	},
+
+	dumpFullPallet: {
+		method: "POST",
+		uri: baseurl + "dumpFullPallet"
+	},
+
+
+	updateFullStandardPallet: {
+		method: "POST",
+		uri: baseurl + "updateFullStandardPallet"
+	},
+
+addEditPalletConstraints: {
     method: 'POST',
     uri: '/QPMCalcServer/cfc/QPMPalletService.cfc?wsdl&method=addEditPalletConstraints',
   },
