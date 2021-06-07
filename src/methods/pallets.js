@@ -1,110 +1,107 @@
 const baseurl = '/QPMCalcServer/cfc/QPMPalletService.cfc?wsdl&method=';
 
 const pallets = {
-	queryPalletPatternsWithSite: {
-		method: "POST",
-		uri: baseurl + "queryPalletPatternsWithSite",
-	},
+  queryPalletPatternsWithSite: {
+    method: 'POST',
+    uri: baseurl + 'queryPalletPatternsWithSite',
+  },
 
-	querySlabsFromSite: {
-		method: "POST",
-		uri: baseurl + "querySlabsFromSite" 
-	},
+  querySlabsFromSite: {
+    method: 'POST',
+    uri: baseurl + 'querySlabsFromSite',
+  },
 
-	queryPalletPatternsWithBoxIds: {
-		method: "POST",
-		uri: baseurl + "queryPalletPatternsWithBoxIds"
-	},
+  queryPalletPatternsWithBoxIds: {
+    method: 'POST',
+    uri: baseurl + 'queryPalletPatternsWithBoxIds',
+  },
 
+  removeAllSlabsFromPallet: {
+    method: 'POST',
+    uri: baseurl + 'removeAllSlabsFromPallet',
+  },
 
-	removeAllSlabsFromPallet: {
-		method: "POST",
-		uri: baseurl + "removeAllSlabsFromPallet"
-	},
+  deletePatternsWithIds: {
+    method: 'POST',
+    uri: baseurl + 'deletePatternsWithIds',
+  },
 
-	deletePatternsWithIds: {
-		method: "POST",
-		uri: baseurl + "deletePatternsWithIds" 
-	},
+  convertPalletXMLtoJSON: {
+    method: 'POST',
+    uri: baseurl + 'convertPalletXMLtoJSON',
+  },
 
-	convertPalletXMLtoJSON: {
-		method: "POST",
-		uri: baseurl + "convertPalletXMLtoJSON"
-	},
+  fixSlabList: {
+    method: 'POST',
+    uri: baseurl + 'fixSlabList',
+  },
 
-	fixSlabList: {
-		method: "POST",
-		uri: baseurl + "fixSlabList"
-	},
+  getBayDataFromTruck: {
+    method: 'POST',
+    uri: baseurl + 'getBayDataFromTruck',
+  },
 
-	getBayDataFromTruck: {
-		method: "POST",
-		uri: baseurl + "getBayDataFromTruck"
-	},
+  getPalletGap: {
+    method: 'POST',
+    uri: baseurl + 'getPalletGap',
+  },
 
-	getPalletGap: {
-		method: "POST",
-		uri: baseurl + "getPalletGap",
-	},
+  getFullPalletInfo: {
+    method: 'POST',
+    uri: baseurl + 'getFullPalletInfo',
+  },
 
-	getFullPalletInfo: {
-		method: "POST",
-		uri: baseurl + "getFullPalletInfo"
-	},
+  dumpSlabToDatabase: {
+    method: 'POST',
+    uri: baseurl + 'dumpSlabToDatabase',
+  },
 
-	dumpSlabToDatabase: {
-		"method": "POST",
-		uri: baseurl + "dumpSlabToDatabase"
-	},
+  updateDefaultWithId: {
+    method: 'POST',
+    uri: baseurl + 'updateDefaultWithId',
+  },
 
+  getFullPalletsFromBoxIds: {
+    method: 'POST',
+    uri: baseurl + 'getFullPalletsFromBoxIds',
+  },
 
-	updateDefaultWithId: {
-		method: "POST",
-		uri: baseurl + "updateDefaultWithId"
-	},
+  queryOrphanStdPalletIds: {
+    method: 'POST',
+    uri: baseurl + 'queryOrphanStdPalletIds',
+  },
 
-	getFullPalletsFromBoxIds: {
-		method: "POST",
-		uri: baseurl + "getFullPalletsFromBoxIds"
-	},
+  queryDisabledPallets: {
+    method: 'POST',
+    uri: baseurl + 'queryDisabledPallets',
+  },
 
-	queryOrphanStdPalletIds: {
-		method: "POST",
-		uri: baseurl + "queryOrphanStdPalletIds"
-	},
+  queryMissingLocations: {
+    method: 'POST',
+    uri: baseurl + 'queryMissingLocations',
+  },
 
-	queryDisabledPallets: {
-		method: "POST",
-		uri: baseurl + "queryDisabledPallets"
-	},
+  get2DSVGFromArrangement: {
+    method: 'POST',
+    uri: baseurl + 'get2DSVGFromArrangement',
+  },
 
-	queryMissingLocations: {
-		method: "POST",
-		uri: baseurl + "queryMissingLocations"
-	},
+  dumpEmptyPallet: {
+    method: 'POST',
+    uri: baseurl + 'dumpEmptyPallet',
+  },
 
-	get2DSVGFromArrangement: {
-		method: "POST",
-		uri: baseurl + "get2DSVGFromArrangement"
-	},
+  dumpFullPallet: {
+    method: 'POST',
+    uri: baseurl + 'dumpFullPallet',
+  },
 
-	dumpEmptyPallet: {
-		method: "POST",
-		uri: baseurl + "dumpEmptyPallet",
-	},
+  updateFullStandardPallet: {
+    method: 'POST',
+    uri: baseurl + 'updateFullStandardPallet',
+  },
 
-	dumpFullPallet: {
-		method: "POST",
-		uri: baseurl + "dumpFullPallet"
-	},
-
-
-	updateFullStandardPallet: {
-		method: "POST",
-		uri: baseurl + "updateFullStandardPallet"
-	},
-
-addEditPalletConstraints: {
+  addEditPalletConstraints: {
     method: 'POST',
     uri: '/QPMCalcServer/cfc/QPMPalletService.cfc?wsdl&method=addEditPalletConstraints',
   },
@@ -228,6 +225,26 @@ addEditPalletConstraints: {
   getPalletsByLoadType: {
     method: 'POST',
     uri: '/QPMCalcServer/cfc/QPMPalletService.cfc?method=getPalletsByLoadType',
+  },
+
+  getBayCodesFromSite: {
+    method: 'POST',
+    uri: baseurl + 'getBayCodesFromSite',
+  },
+
+  querySlabsFromPalletFills: {
+    method: 'POST',
+    uri: baseurl + 'querySlabsFromPalletFills',
+  },
+
+  getBaySkeletonsFromShipment: {
+    method: 'POST',
+    uri: baseurl + 'getBaySkeletonsFromShipment',
+  },
+
+  listStdPalletsPerSite: {
+    method: 'POST',
+    uri: baseurl + 'listStdPalletsPerSite',
   },
 };
 

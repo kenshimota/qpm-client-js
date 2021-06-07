@@ -145,10 +145,51 @@ const trucks = {
     method: 'POST',
     uri: baseurl + 'addFleetTrucksFromPaste',
   },
-	addEditFleetTruck: {
-		method: 'POST',
-		uri: baseurl + 'addEditFleetTruck'
-	}
+
+  addEditFleetTruck: {
+    method: 'POST',
+    uri: baseurl + 'addEditFleetTruck',
+  },
+
+  listFleetFromModel: {
+    method: 'POST',
+    uri: baseurl + 'listFleetFromModel',
+  },
+
+  queryTruckPropertiesFromSite: {
+    method: 'POST',
+    uri: baseurl + 'queryTruckPropertiesFromSite',
+  },
+
+  queryQuickTrucksFromSite: {
+    method: 'POST',
+    uri: baseurl + 'queryQuickTrucksFromSite',
+  },
+
+  deleteFleetTruck: {
+    method: 'POST',
+    uri: baseurl + 'deleteFleetTruck',
+  },
+
+  disableTruck: {
+    method: 'POST',
+    uri: baseurl + 'disableTruck',
+  },
+
+  deleteTruckClass: {
+    method: 'POST',
+    uri: baseurl + 'deleteTruckClass',
+  },
+
+  calculateFullLiteTruck: {
+    method: 'POST',
+    uri: baseurl + 'calculateFullLiteTruck',
+  },
+
+  calculateFullTruckFromRouteID: {
+    method: 'POST',
+    uri: baseurl + 'calculateFullTruckFromRouteID',
+  },
 };
 
 module.exports = trucks;

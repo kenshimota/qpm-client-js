@@ -60,6 +60,46 @@ const trucks_routes = {
     method: 'POST',
     uri: baseurl + 'queryInputDataFromBatch',
   },
+
+  getEmptyRoutesByBatch: {
+    method: 'POST',
+    uri: baseurl + 'getEmptyRoutesByBatch',
+  },
+
+  dumpBatchWithRoutes: {
+    method: 'POST',
+    uri: baseurl + 'dumpBatchWithRoutes',
+  },
+
+  readEmptyRoutesByBatch: {
+    method: 'POST',
+    uri: baseurl + 'readEmptyRoutesByBatch',
+  },
+
+  splitAndDeleteAllFromBatch: {
+    method: 'POST',
+    uri: baseurl + 'splitAndDeleteAllFromBatch',
+  },
+
+  deleteBatchesFromList: {
+    method: 'POST',
+    uri: baseurl + 'deleteBatchesFromList',
+  },
+
+  zeroItemsInBatch: {
+    method: 'POST',
+    uri: baseurl + 'zeroItemsInBatch',
+  },
+
+  createMissingBoxesFromBatchID: {
+    method: 'POST',
+    uri: baseurl + 'createMissingBoxesFromBatchID',
+  },
+
+  deleteExtraItems: {
+    method: 'POST',
+    uri: baseurl + 'deleteExtraItems',
+  },
 };
 
 module.exports = trucks_routes;

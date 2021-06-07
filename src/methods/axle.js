@@ -1,12 +1,19 @@
+const baseurl = '/QPMCalcServer/cfc/QPMAxleService.cfc?wsdl&method=';
+
 const axle = {
   getAxlesFromTruck: {
     method: 'POST',
-    uri: '/QPMCalcServer/cfc/QPMAxleService.cfc?wsdl&method=getAxlesFromTruck',
+    uri: baseurl + 'getAxlesFromTruck',
   },
 
   queryAxleWeightsFromShipment: {
     method: 'POST',
-    uri: '/QPMCalcServer/cfc/QPMAxleService.cfc?wsdl&method=queryAxleWeightsFromShipment',
+    uri: baseurl + 'queryAxleWeightsFromShipment',
+  },
+
+  queryAxleWeightsFromTruckName: {
+    method: 'POST',
+    uri: baseurl + +'queryAxleWeightsFromTruckName',
   },
 };
 

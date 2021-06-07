@@ -1,3 +1,5 @@
+const baseurl = '/QPMCalcServer/cfc/QPMBoxService.cfc?method=';
+
 const boxes = {
   addBoxForCalc: {
     method: 'POST',
@@ -192,6 +194,36 @@ const boxes = {
   queryBoxSummaryDataFromPalletFills: {
     method: 'POST',
     uri: '/QPMCalcServer/cfc/QPMBoxService.cfc?method=queryBoxSummaryDataFromPalletFills',
+  },
+
+  getBoxSummarySkeletonsFromPalletFill: {
+    method: 'POST',
+    uri: baseurl + 'getBoxSummarySkeletonsFromPalletFill',
+  },
+
+  getMissingFromRoute: {
+    method: 'POST',
+    uri: baseurl + 'getMissingFromRoute',
+  },
+
+  getBoxSkeletonsFromShipment: {
+    method: 'POST',
+    uri: baseurl + 'getBoxSkeletonsFromShipment',
+  },
+
+  copyBoxesToSite: {
+    method: 'POST',
+    uri: baseurl + 'copyBoxesToSite',
+  },
+
+  createFullBoxFromShipItem: {
+    method: 'POST',
+    uri: baseurl + 'createFullBoxFromShipItem',
+  },
+
+  getBoxSummariesFromRouteId: {
+    method: 'POST',
+    uri: baseurl + 'getBoxSummariesFromRouteId',
   },
 };
 

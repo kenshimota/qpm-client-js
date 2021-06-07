@@ -1,3 +1,5 @@
+const baseurl = '/QPMCalcServer/cfc/QPMAssetClassService.cfc?wsdl&method=';
+
 const classes = {
   addEditAssetClass: {
     method: 'POST',
@@ -71,6 +73,11 @@ const classes = {
   updatePropertiesForBoxID: {
     method: 'POST',
     uri: '/QPMCalcServer/cfc/QPMAssetClassService.cfc?wsdl&method=updatePropertiesForBoxID',
+  },
+
+  updatePropertiesForBoxCode: {
+    method: 'POST',
+    uri: baseurl + 'updatePropertiesForBoxCode',
   },
 };
 
