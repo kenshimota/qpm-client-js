@@ -79,6 +79,26 @@ const classes = {
     method: 'POST',
     uri: baseurl + 'updatePropertiesForBoxCode',
   },
+
+  createCompatibility: {
+    method: "POST",
+    uri: baseurl + "createCompatibility"
+  },
+
+
+  dumpAssetClass: {
+    method: "POST",
+    uri: baseurl + "dumpAssetClass"
+  },
+
+  copyClassesToSite: {
+    method: "POST",
+    uri: baseurl + "copyClassesToSite"
+  },
+
+
+
+
 };
 
 module.exports = classes;

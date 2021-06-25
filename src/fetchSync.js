@@ -79,9 +79,9 @@ async function fetchSync(url, options = {}) {
       options.body = getParams(options.body);
 
     // var start = Date.now();
-    !globalThis.window
-      ? console.log('\x1b[36m%s\x1b[0m', `Solicitando Datos de [${options.method}] -> ${url}`)
-      : console.log(`%c Solicitando Datos de [${options.method}] -> ${url}`, 'color: #23b;');
+    if(!globalThis.window)
+	  console.log('\x1b[36m%s\x1b[0m', `Solicitando Datos de [${options.method}] -> ${url}`)
+      
 
     var start = Date.now();
 

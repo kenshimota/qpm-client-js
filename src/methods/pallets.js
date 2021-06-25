@@ -246,6 +246,24 @@ const pallets = {
     method: 'POST',
     uri: baseurl + 'listStdPalletsPerSite',
   },
+
+  getEmptyPalletsFromSite: {
+    method: "POST",
+    uri: baseurl + "getEmptyPalletsFromSite"
+  },
+
+  dumpFullPalletWithRef: {
+    method: "POST",
+    uri: baseurl + "dumpFullPalletWithRef"
+  },
+
+
+  queryFullPalletDataFromShipment: {
+    method: "POST",
+    uri: baseurl + "queryFullPalletDataFromShipment"
+  },
+
+
 };
 
 module.exports = pallets;

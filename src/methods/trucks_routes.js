@@ -48,7 +48,7 @@ const trucks_routes = {
 
   getEmptyBatchesByDate: {
     method: 'POST',
-    uri: baseurl + 'getEmptyBatchesByDate',
+    uri: '/QPMCalcServer/cfc/QPMRouteBatchService.cfc?method=getEmptyBatchesByDate',
   },
 
   getTransportStatus: {
@@ -100,6 +100,36 @@ const trucks_routes = {
     method: 'POST',
     uri: baseurl + 'deleteExtraItems',
   },
+
+  getRouteIDsFromBatchID: {
+    method: 'POST',
+    uri: baseurl + 'getRouteIDsFromBatchID',
+  },
+
+  readRouteWithCalcInfo: {
+    method: 'POST',
+    uri: baseurl + 'readRouteWithCalcInfo',
+  },
+
+  getRouteIDsFromDates: {
+    method: 'POST',
+    uri: baseurl + 'getRouteIDsFromDates',
+  },
+
+  getAllFromRoute: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMShipItemService.cfc?method=getAllFromRoute',
+  },
+
+  queryShipIdsByBatchDate: {
+    method: "POST",
+    uri: baseurl + "queryShipIdsByBatchDate"
+  },
+
+  queryBatchIDsByDate: {
+    method: "POST",
+    uri: baseurl + "queryBatchIDsByDate"
+  }
 };
 
 module.exports = trucks_routes;

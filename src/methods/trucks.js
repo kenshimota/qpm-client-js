@@ -190,6 +190,56 @@ const trucks = {
     method: 'POST',
     uri: baseurl + 'calculateFullTruckFromRouteID',
   },
+
+  queryBatchIDsByDate: {
+    method: "POST",
+    uri: baseurl + "queryBatchIDsByDate"
+  },
+
+  dumpTruckClass: {
+    method: "POST",
+    uri: baseurl + "dumpTruckClass"
+  },
+
+  createNewTruckWithJoinedBays: {
+    method: "POST",
+    uri: baseurl + "createNewTruckWithJoinedBays"
+  },
+
+  readSkeletonsByProducts: {
+    method: "POST",
+    uri: baseurl + "readSkeletonsByProducts"
+  },
+
+  checkTruckCalc: {
+    method: "POST",
+    uri: baseurl + "checkTruckCalc"
+  },
+
+  transferItemsToEqualBays: {
+    method: "POST",
+    uri: baseurl + "transferItemsToEqualBays"
+  },
+
+  getBayDataFromSite: {
+    method: "POST",
+    uri: baseurl + "getBayDataFromSite"
+  },
+
+  readTruckItem: {
+    method: "POST",
+    uri: baseurl + "readTruckItem"
+  },
+
+  dumpTruck: {
+    method: "POST",
+    uri: baseurl + "dumpTruck"
+  },
+
+  eraseCalculations: {
+    method: "POST",
+    uri: baseurl + "eraseCalculations"
+  }
 };
 
 module.exports = trucks;

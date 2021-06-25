@@ -45,6 +45,27 @@ const containers = {
     method: 'POST',
     uri: baseurl + 'deleteContainer',
   },
+
+  deleteEmptyContainer: {
+    method: "POST",
+    uri: baseurl + "deleteEmptyContainer"
+  },
+
+  readFullContainer: {
+    method: "POST",
+    uri: baseurl + "readFullContainer"
+  },
+
+  queryEmptyContainersWithSiteName: {
+    method: "POST",
+    uri: baseurl + "queryEmptyContainersWithSiteName"
+  },
+
+  dumpEmptyContainer: {
+    method: "POST",
+    uri: baseurl + "dumpEmptyContainer"
+  },
+
 };
 
 module.exports = containers;

@@ -225,6 +225,24 @@ const boxes = {
     method: 'POST',
     uri: baseurl + 'getBoxSummariesFromRouteId',
   },
+
+  getBoxProperties: {
+    method: "POST",
+    uri: baseurl + "getBoxProperties"
+  },
+
+  getFullBoxCount: {
+    method: "POST",
+    uri: baseurl + "getFullBoxCount"
+  },
+
+  deleteCFBox: {
+    method: "POST",
+    uri: baseurl + "deleteCFBox"
+  },
+
+
+
 };
 
 module.exports = boxes;
