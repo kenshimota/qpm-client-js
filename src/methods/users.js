@@ -40,6 +40,11 @@ const users = {
     method: 'POST',
     uri: baseurl + 'queryUserActivity',
   },
+
+  setUserServerData: {
+    method: 'POST',
+    uri: baseurl + 'setUserServerData',
+  },
 };
 
 module.exports = users;

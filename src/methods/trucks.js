@@ -192,54 +192,74 @@ const trucks = {
   },
 
   queryBatchIDsByDate: {
-    method: "POST",
-    uri: baseurl + "queryBatchIDsByDate"
+    method: 'POST',
+    uri: baseurl + 'queryBatchIDsByDate',
   },
 
   dumpTruckClass: {
-    method: "POST",
-    uri: baseurl + "dumpTruckClass"
+    method: 'POST',
+    uri: baseurl + 'dumpTruckClass',
   },
 
   createNewTruckWithJoinedBays: {
-    method: "POST",
-    uri: baseurl + "createNewTruckWithJoinedBays"
+    method: 'POST',
+    uri: baseurl + 'createNewTruckWithJoinedBays',
   },
 
   readSkeletonsByProducts: {
-    method: "POST",
-    uri: baseurl + "readSkeletonsByProducts"
+    method: 'POST',
+    uri: baseurl + 'readSkeletonsByProducts',
   },
 
   checkTruckCalc: {
-    method: "POST",
-    uri: baseurl + "checkTruckCalc"
+    method: 'POST',
+    uri: baseurl + 'checkTruckCalc',
   },
 
   transferItemsToEqualBays: {
-    method: "POST",
-    uri: baseurl + "transferItemsToEqualBays"
+    method: 'POST',
+    uri: baseurl + 'transferItemsToEqualBays',
   },
 
   getBayDataFromSite: {
-    method: "POST",
-    uri: baseurl + "getBayDataFromSite"
+    method: 'POST',
+    uri: baseurl + 'getBayDataFromSite',
   },
 
   readTruckItem: {
-    method: "POST",
-    uri: baseurl + "readTruckItem"
+    method: 'POST',
+    uri: baseurl + 'readTruckItem',
   },
 
   dumpTruck: {
-    method: "POST",
-    uri: baseurl + "dumpTruck"
+    method: 'POST',
+    uri: baseurl + 'dumpTruck',
   },
 
   eraseCalculations: {
-    method: "POST",
-    uri: baseurl + "eraseCalculations"
-  }
+    method: 'POST',
+    uri: baseurl + 'eraseCalculations',
+  },
+
+  searchQuickTrucksFromSite: {
+    method: 'POST',
+    uri: baseurl + 'searchQuickTrucksFromSite',
+  },
+
+  getCalcInputFromRouteID: {
+    method: 'POST',
+    uri: baseurl + 'getCalcInputFromRouteID',
+  },
+
+  dumpTruckContentsWithIds: {
+    method: 'POST',
+    uri: baseurl + 'dumpTruckContentsWithIds',
+  },
+
+  searchTruckTypesFromSite: {
+    method: 'POST',
+    uri: baseurl + 'searchTruckTypesFromSite',
+  },
 };
 
 module.exports = trucks;

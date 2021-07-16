@@ -248,22 +248,44 @@ const pallets = {
   },
 
   getEmptyPalletsFromSite: {
-    method: "POST",
-    uri: baseurl + "getEmptyPalletsFromSite"
+    method: 'POST',
+    uri: baseurl + 'getEmptyPalletsFromSite',
   },
 
   dumpFullPalletWithRef: {
-    method: "POST",
-    uri: baseurl + "dumpFullPalletWithRef"
+    method: 'POST',
+    uri: baseurl + 'dumpFullPalletWithRef',
   },
-
 
   queryFullPalletDataFromShipment: {
-    method: "POST",
-    uri: baseurl + "queryFullPalletDataFromShipment"
+    method: 'POST',
+    uri: baseurl + 'queryFullPalletDataFromShipment',
   },
 
+  createFullPalletFromData: {
+    method: 'POST',
+    uri: baseurl + 'createFullPalletFromData',
+  },
 
+  fillLocationData: {
+    method: 'POST',
+    uri: baseurl + 'fillLocationData',
+  },
+
+  swapSlabFromPallet: {
+    method: 'POST',
+    uri: baseurl + 'swapSlabFromPallet',
+  },
+
+  calculatePalletPatterns: {
+    method: 'POST',
+    uri: baseurl + 'calculatePalletPatterns',
+  },
+
+  insertSlabInPallet: {
+    method: 'POST',
+    uri: baseurl + 'insertSlabInPallet',
+  },
 };
 
 module.exports = pallets;

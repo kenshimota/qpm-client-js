@@ -81,24 +81,24 @@ const classes = {
   },
 
   createCompatibility: {
-    method: "POST",
-    uri: baseurl + "createCompatibility"
+    method: 'POST',
+    uri: baseurl + 'createCompatibility',
   },
 
-
   dumpAssetClass: {
-    method: "POST",
-    uri: baseurl + "dumpAssetClass"
+    method: 'POST',
+    uri: baseurl + 'dumpAssetClass',
   },
 
   copyClassesToSite: {
-    method: "POST",
-    uri: baseurl + "copyClassesToSite"
+    method: 'POST',
+    uri: baseurl + 'copyClassesToSite',
   },
 
-
-
-
+  queryBoxClassesWithSite: {
+    method: 'POST',
+    uri: baseurl + 'queryBoxClassesWithSite',
+  },
 };
 
 module.exports = classes;

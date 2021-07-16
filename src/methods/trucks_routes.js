@@ -122,14 +122,19 @@ const trucks_routes = {
   },
 
   queryShipIdsByBatchDate: {
-    method: "POST",
-    uri: baseurl + "queryShipIdsByBatchDate"
+    method: 'POST',
+    uri: baseurl + 'queryShipIdsByBatchDate',
   },
 
   queryBatchIDsByDate: {
-    method: "POST",
-    uri: baseurl + "queryBatchIDsByDate"
-  }
+    method: 'POST',
+    uri: baseurl + 'queryBatchIDsByDate',
+  },
+
+  groupRoutesIntoBatch: {
+    method: 'POST',
+    uri: baseurl + 'groupRoutesIntoBatch',
+  },
 };
 
 module.exports = trucks_routes;
