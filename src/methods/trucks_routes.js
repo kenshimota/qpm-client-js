@@ -123,7 +123,7 @@ const trucks_routes = {
 
   queryShipIdsByBatchDate: {
     method: 'POST',
-    uri: baseurl + 'queryShipIdsByBatchDate',
+    uri:'/QPMCalcServer/cfc/QPMRouteBatchService.cfc?method=queryShipIdsByBatchDate',
   },
 
   queryBatchIDsByDate: {
