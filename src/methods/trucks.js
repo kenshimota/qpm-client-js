@@ -53,7 +53,7 @@ const trucks = {
 
   queryPalletPropertiesFromShipments: {
     method: 'POST',
-    uri: baseurl + 'queryPalletPropertiesFromShipments',
+    uri: '/QPMCalcServer/cfc/QPMTruckCalc.cfc?method=queryPalletPropertiesFromShipments',
   },
 
   readTruckClass: {
