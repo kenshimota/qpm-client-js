@@ -38,12 +38,12 @@ const trucks = {
 
   queryBoxesFromMultipleShipments: {
     method: 'POST',
-    uri: baseurl + 'queryBoxesFromMultipleShipments',
+    uri: "/QPMCalcServer/cfc/QPMTruckCalc.cfc?method=queryBoxesFromMultipleShipments',
   },
 
   queryBoxLocationsFromShipment: {
     method: 'POST',
-    uri: baseurl + 'queryBoxLocationsFromShipment',
+    uri: "/QPMCalcServer/cfc/QPMTruckCalc.cfc?method=queryBoxLocationsFromShipment',
   },
 
   queryMaxAxleWeightsFromTruckName: {
