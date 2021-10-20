@@ -10,6 +10,7 @@ const consignments = require('./methods/consignments');
 const axle = require('./methods/axle');
 const containers = require('./methods/containers');
 const users = require('./methods/users');
+const customers = require('./methods/customers');
 
 let packagesMethods = {
   boards,
@@ -24,6 +25,7 @@ let packagesMethods = {
   axle,
   containers,
   users,
+  customers,
 };
 
 let methods = {};
@@ -48,6 +50,8 @@ const reports = [
   { url: '/QPMCalcServer/cfc/QPMAxleService.cfc?wsdl', category: 'axles' },
   { url: '/QPMCalcServer/cfc/QPMContainerService.cfc?wsdl', category: 'containers' },
   { url: '/QPMCalcServer/cfc/QPMUserService.cfc?wsdl', category: 'users' },
+  { url: '/QPMCalcServer/cfc/VROCustomerService.cfc?wsdl', category: 'customers' },
+  { url: '/QPMCalcServer/cfc/QPMCustomerService.cfc?wsdl', category: 'customers' },
 ];
 
 module.exports = { methods, reports };
