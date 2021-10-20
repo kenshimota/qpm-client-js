@@ -1,6 +1,10 @@
 const baseurl = '/QPMCalcServer/cfc/QPMRouteService.cfc?wsdl&method=';
 
-const trucks_routes = {
+const trucks_routes = { 
+	readCFRoute: {
+		method: "POST",
+		uri: baseurl + "readCFRoute",
+	},
   addShipItemToRoute: {
     method: 'POST',
     uri: baseurl + 'addShipItemToRoute',
