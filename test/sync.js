@@ -1,15 +1,10 @@
 const { QPM } = require('../index');
+const initData = require("../config/data.json");
 
 const main = async function () {
   const Client = QPM();
   // esta es la variable cliente
-  await Client.login({
-    username: 'tsancio_cr', // username
-    password: 'koona', // password
-    server: 'http://45.79.44.19:8888', // link and port the server
-    calcdb: 'qpm_calcdb',
-    ctrldb: 'qpm_controldb',
-  });
+  await Client.login(initData);
 
   // esta funcion se encarga de buscar que methodos hacen falta por documentar
   Client.getMethodsNotDefined().then(methods => {

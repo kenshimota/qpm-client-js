@@ -1,10 +1,11 @@
 const { QPM } = require('../index');
+const params = require("../config/data.json");
 
 // esta es la variable cliente
 const Client = QPM({
-  username: 'admin_lin001', // username
-  password: 'koona001', // password
-  server: 'http://45.79.188.67:8888', // link and port the server
+  username: params.username, // username
+  password: params.password, // password
+  server: params.server, // link and port the server
 });
 
 // ---------- Main -----------
