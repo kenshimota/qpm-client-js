@@ -75,13 +75,16 @@ async function fetchSync(url, options = {}) {
     }
 
     // permite crear parametros en forma de json a procesador
-    if (typeof options.body == 'object' && options.body != null && options.method == 'POST')
-      options.body = getParams(options.body);
+    if (options.body && options.method == 'POST') options.body = getParams(options.body);
+
+    if (options.body && options.method == 'GET') {
+      url += '&' + getParams(options.body);
+      delete options.body;
+    }
 
     // var start = Date.now();
-    if(!globalThis.window)
-	  console.log('\x1b[36m%s\x1b[0m', `Solicitando Datos de [${options.method}] -> ${url}`)
-      
+    if (!globalThis.window)
+      console.log('\x1b[36m%s\x1b[0m', `Solicitando Datos de [${options.method}] -> ${url}`);
 
     var start = Date.now();
 
@@ -90,6 +93,7 @@ async function fetchSync(url, options = {}) {
       .then(async response => {
         try {
           var data = await response.text();
+          console.log(data);
           var end = Date.now();
 
           // notificando que ha ocurrido todo un error
@@ -115,7 +119,7 @@ async function fetchSync(url, options = {}) {
               break;
           }
 
-          return { response: data, status: response.status };
+          return { response: data, status: response.status, headers: response.headers };
         } catch (error) {
           throw error;
         }
