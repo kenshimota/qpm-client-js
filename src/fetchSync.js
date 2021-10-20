@@ -93,7 +93,6 @@ async function fetchSync(url, options = {}) {
       .then(async response => {
         try {
           var data = await response.text();
-          console.log(data);
           var end = Date.now();
 
           // notificando que ha ocurrido todo un error
