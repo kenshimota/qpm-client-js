@@ -108,7 +108,7 @@ const trucks = {
 
   getBaysFromShipment: {
     method: 'POST',
-    uri: baseurl + 'getBaysFromShipment',
+    uri: '/QPMCalcServer/cfc/QPMPalletService.cfc?method=getBaysFromShipment',
   },
 
   addEditTruck: {
