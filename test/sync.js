@@ -6,7 +6,7 @@ const main = async function () {
   await Client.login({
     username: 'tsancio_cr', // username
     password: 'koona', // password
-    server: 'http://45.79.188.67:8888', // link and port the server
+    server: 'http://45.79.44.19:8888', // link and port the server
     calcdb: 'qpm_calcdb',
     ctrldb: 'qpm_controldb',
   });
