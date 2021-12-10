@@ -1,38 +1,39 @@
 const boards = {
-	"addEditBoard": {
-        method: "POST",
-        uri: "/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=addEditBoard"
-    },
+  addEditBoard: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=addEditBoard',
+  },
 
-    "deleteBoards": {
-        method: "POST",
-        uri: "/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=deleteBoards"
-    },
+  deleteBoards: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=deleteBoards',
+  },
 
-    "getDefaultBoardFromSite": {
-        method: "POST",
-        uri: "/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=getDefaultBoardFromSite"
-    },
+  getDefaultBoardFromSite: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=getDefaultBoardFromSite',
+  },
 
-    "getBoardInfo": {
-        method: "POST",
-        uri: "/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=getBoardInfo"
-    },
+  getBoardInfo: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=getBoardInfo',
+  },
 
-    "getRSCDrawing": {
-        method: "POST",
-        uri: "/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=getRSCDrawing"
-    },
+  getRSCDrawing: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=getRSCDrawing',
+    responseType: 'text',
+  },
 
-    "listBoardsPerSite": {
-        method: "POST",
-        uri: "/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=listBoardsPerSite"
-    },
+  listBoardsPerSite: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=listBoardsPerSite',
+  },
 
-    "updatePropertiesForBoxID": {
-        method: "POST",
-        uri: "/QPMCalcServer/cfc/QPMAssetClassService.cfc?wsdl&method=updatePropertiesForBoxID"
-    },
+  addDefaultBoards: {
+    method: 'POST',
+    uri: '/QPMCalcServer/cfc/QPMBoardService.cfc?wsdl&method=addDefaultBoards',
+  },
 };
 
 module.exports = boards;
